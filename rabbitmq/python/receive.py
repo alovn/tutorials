@@ -27,6 +27,7 @@ def callback(ch, method, properties, body):
 #这可能造成某些consumer积压很多任务处理不完而一些consumer长期处于饥饿状态
 #可以使用prefetch_count=1的basic_qos方法可告知RabbitMQ只有在consumer处理并确认了上一个message后才分配新的message给他
 #否则分给另一个空闲的consumer
+#通过配置 prefetch_count 参数, 来设置一次从队列中取多少条消息
 channel.basic_qos(prefetch_count=1)
 
 #没有设置no_ack=True则consumer在收到message后会向RabbitMQ反馈已收到并处理了message告诉RabbitMQ可以删除该message
