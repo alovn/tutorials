@@ -14,8 +14,6 @@ channel.exchange_declare(exchange='topic_logs', type='topic')
 
 
 message = 'Hello, World!'
-#将message publish到名为log的exchange中
-#因为是fanout类型的exchange，这里无需指定routing_key
 channel.basic_publish(exchange='topic_logs',
                       routing_key='topic.logs.info',
                       body=message)
