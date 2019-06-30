@@ -1,4 +1,4 @@
-module grpc_demo
+module grpc_demo/grpc_cert2
 
 go 1.12
 
