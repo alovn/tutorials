@@ -1,7 +1,10 @@
 package main
 
 import (
+    "google.golang.org/grpc/grpclog"
+    "google.golang.org/grpc/status"
     "net"
+    "log"
 
     pb "grpc_demo/grpc_interceptor/proto"
 
@@ -9,14 +12,9 @@ import (
     "google.golang.org/grpc"
     "google.golang.org/grpc/codes"       // grpc 响应状态码
     //"google.golang.org/grpc/credentials" // grpc认证包
-    "google.golang.org/grpc/grpclog"
     "google.golang.org/grpc/metadata" // grpc metadata包
 )
 
-const (
-    // Address gRPC服务地址
-    Address = "127.0.0.1:50052"
-)
 
 // 定义helloService并实现约定的接口
 type helloService struct{}
@@ -35,7 +33,7 @@ func (h helloService) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.He
 func auth(ctx context.Context) error {
     md, ok := metadata.FromIncomingContext(ctx)
     if !ok {
-        return grpc.Errorf(codes.Unauthenticated, "无Token认证信息")
+        return status.Errorf(codes.Unauthenticated, "无Token认证信息")
     }
 
     var (
@@ -52,14 +50,14 @@ func auth(ctx context.Context) error {
     }
 
     if appid != "10001" || appkey != "mysecret" {
-        return grpc.Errorf(codes.Unauthenticated, "Token认证信息无效: appid=%s, appkey=%s", appid, appkey)
+        return status.Errorf(codes.Unauthenticated, "Token认证信息无效: appid=%s, appkey=%s", appid, appkey)
     }
 
     return nil
 }
 
 func main() {
-    listen, err := net.Listen("tcp", Address)
+    listen, err := net.Listen("tcp", "127.0.0.1:50052")
     if err != nil {
         grpclog.Fatalf("Failed to listen: %v", err)
     }
@@ -92,7 +90,7 @@ func main() {
 	// 注册HelloService
     pb.RegisterHelloServiceServer(s, HelloService)
 
-    grpclog.Println("Listen on " + Address + " with TLS + Token + Interceptor")
+    log.Println("Listen on 50052 with Token + Interceptor")
 
     s.Serve(listen)
 }

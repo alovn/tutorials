@@ -10,7 +10,7 @@ import (
 
 const (
     // Address gRPC服务地址
-    Address = "127.0.0.1:50052"
+    address = "127.0.0.1:50052"
 )
 
 // customCredential 自定义认证
@@ -28,14 +28,14 @@ func (c customCredential) RequireTransportSecurity() bool {
 }
 
 func main() {
-    var opts []grpc.DialOption
+	var opts []grpc.DialOption
 
     opts = append(opts, grpc.WithInsecure())
 
     // 指定自定义认证
     opts = append(opts, grpc.WithPerRPCCredentials(new(customCredential)))
 
-    conn, err := grpc.Dial(Address, opts...)
+    conn, err := grpc.Dial(address, opts...)
 
     if err != nil {
         log.Fatalln(err)
@@ -53,6 +53,5 @@ func main() {
     if err != nil {
         log.Fatalln(err)
     }
-
-	log.Printf("Greeting: %s, %v", r.Reply, r.Number)
+    log.Printf("Greeting: %s, %v", r.Reply, r.Number)
 }
