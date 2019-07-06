@@ -28,7 +28,6 @@ func (c customCredential) RequireTransportSecurity() bool {
 }
 
 func main() {
-    var err error
     var opts []grpc.DialOption
 
     opts = append(opts, grpc.WithInsecure())
