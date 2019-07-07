@@ -62,15 +62,19 @@ func auth(ctx context.Context) error {
 
 func LoggingInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {
 	log.Printf("gRPC method: %s, %v", info.FullMethod, req)
-
-	var err = auth(ctx)
-	if err != nil {
-		return nil, err
-	}
-
 	resp, err := handler(ctx, req)
 	log.Printf("gRPC method: %s, %v", info.FullMethod, resp)
 	return resp, err
+}
+
+func AuthInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {
+	var err = auth(ctx)
+	if err != nil {
+		log.Printf("auth fail: %v", err)
+		return nil, err
+	}
+
+	return handler(ctx, req)
 }
 
 func RecoveryInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {
@@ -89,6 +93,7 @@ func main() {
 		grpc_middleware.WithUnaryServerChain(
 			RecoveryInterceptor,
 			LoggingInterceptor,
+			AuthInterceptor,
 			),
 	}
 	server := grpc.NewServer(opts...)
