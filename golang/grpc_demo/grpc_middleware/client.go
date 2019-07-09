@@ -1,8 +1,8 @@
 package main
 
 import (
-	"log"
 	pb "grpc_demo/grpc_middleware/proto" // 引入proto包
+	"log"
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"

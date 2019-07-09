@@ -1,4 +1,5 @@
 package main
+
 import (
 	"context"
 	"google.golang.org/grpc/metadata"
@@ -6,14 +7,13 @@ import (
 	"net"
 	"runtime/debug"
 
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/status"
-	"google.golang.org/grpc/codes"
 	"github.com/grpc-ecosystem/go-grpc-middleware"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 
 	pb "grpc_demo/grpc_middleware/proto"
 )
-
 
 // 定义helloService并实现约定的接口
 type helloService struct{}
@@ -28,7 +28,6 @@ func (h helloService) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.He
 	//recover 异常测试
 	//var a =0;
 	//resp.Reply = string(1/a);
-
 
 	return resp, nil
 }
@@ -94,7 +93,7 @@ func main() {
 			RecoveryInterceptor,
 			LoggingInterceptor,
 			AuthInterceptor,
-			),
+		),
 	}
 	server := grpc.NewServer(opts...)
 	pb.RegisterHelloServiceServer(server, HelloService)
