@@ -1,4 +1,4 @@
-module grpc_demo/grpc_discovery
+module grpc_demo/grpc_etcd_discovery
 
 go 1.12
 

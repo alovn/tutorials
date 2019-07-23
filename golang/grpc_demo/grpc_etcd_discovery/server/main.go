@@ -2,22 +2,24 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"flag"
+	"fmt"
+	"log"
+	"net"
+	"os"
 	"os/signal"
 	"syscall"
-	"os"
+	"time"
+
 	"github.com/coreos/etcd/clientv3"
 	"google.golang.org/grpc/naming"
 	"google.golang.org/grpc/reflection"
-	"log"
-	"net"
-	"time"
 
+	pb "grpc_demo/grpc_etcd_discovery/proto"
+
+	"github.com/coreos/etcd/clientv3/concurrency"
 	etcdnaming "github.com/coreos/etcd/clientv3/naming"
 	"google.golang.org/grpc"
-	"github.com/coreos/etcd/clientv3/concurrency"
-	pb "grpc_demo/grpc_discovery/proto"
 )
 
 // server is used to implement helloworld.GreeterServer.
@@ -26,7 +28,7 @@ type server struct{}
 // SayHello implements helloworld.GreeterServer
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloResponse, error) {
 	log.Printf("Received: %v", in.Greeting)
-	return &pb.HelloResponse{Reply: "Hello " + in.Greeting, Number: []int32{1,2}}, nil
+	return &pb.HelloResponse{Reply: "Hello " + in.Greeting, Number: []int32{1, 2}}, nil
 }
 
 func etcdRegister(c *clientv3.Client, service, addr string, ttl int) error {
@@ -65,20 +67,18 @@ func main() {
 	defer cli.Close()
 	etcdRegister(cli, "/_grpc/service/hello-service", fmt.Sprintf(":%d", *port), 2)
 
-
 	s := grpc.NewServer()
 	reflection.Register(s)
 
 	pb.RegisterHelloServiceServer(s, &server{})
 
-	go func(){
+	go func() {
 		if err := s.Serve(listen); err != nil {
 			log.Fatalf("failed to serve: %v", err)
 		} else {
 			log.Printf("grpc service start at port: %v", *port)
 		}
 	}()
-	
 
 	// wait for stop signal
 	signalChan := make(chan os.Signal, 1)

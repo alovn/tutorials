@@ -2,14 +2,15 @@ package main
 
 import (
 	"context"
-	"time"
 	"fmt"
+	"time"
 
 	"github.com/coreos/etcd/clientv3"
 	etcdnaming "github.com/coreos/etcd/clientv3/naming"
 
+	pb "grpc_demo/grpc_etcd_discovery/proto"
+
 	"google.golang.org/grpc"
-	pb "grpc_demo/grpc_discovery/proto"
 )
 
 type GrpcConnection interface {
@@ -17,12 +18,10 @@ type GrpcConnection interface {
 	connect()
 }
 
-
 type EtcdResolverConnection struct {
 	grpcConn    *grpc.ClientConn
 	serviceName string
 }
-
 
 func (e *EtcdResolverConnection) connect() {
 	config := clientv3.Config{
@@ -45,8 +44,8 @@ func (e *EtcdResolverConnection) connect() {
 	conn, err := grpc.DialContext(
 		ctx,
 		e.serviceName,
-		grpc.WithInsecure(), 
-		grpc.WithTimeout(time.Second * 5),
+		grpc.WithInsecure(),
+		grpc.WithTimeout(time.Second*5),
 		grpc.WithBalancer(b),
 		grpc.WithBlock(),
 	)
