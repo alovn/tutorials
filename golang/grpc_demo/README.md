@@ -7,3 +7,4 @@
 5. grpc_middleware
 6. grpc_etcd_discovery
 7. grpc_etcd_discovery2
+8. grpc_gateway
