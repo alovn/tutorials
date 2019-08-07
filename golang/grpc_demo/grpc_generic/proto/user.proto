@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package user;
+
+//import "google/protobuf/any.proto";
+import "google/protobuf/struct.proto";
+import "google/api/annotations.proto";
+
+service User {
+    rpc Login(LoginRequest) returns (CommonResponse) {
+        option (google.api.http) = {
+            get: "/loggin"
+        };
+    }
+}
+
+
+message CommonResponse {
+    int32 err = 1;
+    string msg = 2;
+    //google.protobuf.Any data = 3;
+    google.protobuf.Value data = 3;
+}
+
+message LoginRequest {
+    string js_code = 1;
+}
+
+message LoginResult {
+    string open_id = 1;
+    string session_key = 2;
+} 
