@@ -2,14 +2,16 @@ syntax = "proto3";
 
 package user;
 
-//import "google/protobuf/any.proto";
+option go_package = ".;proto";
+
+import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "google/api/annotations.proto";
 
 service User {
     rpc Login(LoginRequest) returns (CommonResponse) {
         option (google.api.http) = {
-            get: "/loggin"
+            get: "/login"
         };
     }
 }
@@ -18,8 +20,8 @@ service User {
 message CommonResponse {
     int32 err = 1;
     string msg = 2;
-    //google.protobuf.Any data = 3;
-    google.protobuf.Value data = 3;
+    google.protobuf.Value data_value = 3;
+    google.protobuf.Any data_any = 4;
 }
 
 message LoginRequest {
