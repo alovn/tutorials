@@ -1,5 +1,6 @@
 syntax = "proto3";
 package hello;
+option go_package=".;hello";
 
 message HelloRequest {
   string greeting = 1;
