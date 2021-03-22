@@ -3,7 +3,6 @@
 ## 2020
 
 * [1.2 探探分布式存储的实践.pdf](./2020/1.2%20探探分布式存储的实践.pdf)
-* [1.3 go-programming-patterns.pdf](./2020/1.3%20go-programming-patterns.pdf)
 * [1.4 Golang in GrabFood Discovery System.pdf](./2020/1.4%20Golang%20%20in%20GrabFood%20%20Discovery%20System.pdf)
 * [1.5 华为云的go语言云原生实战经验.pdf](/2020/1.5%20华为云的go语言云原生实战经验.pdf)
 * [1.6 Functional options and config for APIs.pdf](./2020/1.6%20Functional%20options%20and%20config%20for%20APIs.pdf)
