@@ -1,0 +1,42 @@
+# gopherchina
+
+## 2020
+
+* [1.2 探探分布式存储的实践.pdf](./2020/1.2%20探探分布式存储的实践.pdf)
+* [1.3 go-programming-patterns.pdf](./2020/1.3%20go-programming-patterns.pdf)
+* [1.4 Golang in GrabFood Discovery System.pdf](./2020/1.4%20Golang%20%20in%20GrabFood%20%20Discovery%20System.pdf)
+* [1.5 华为云的go语言云原生实战经验.pdf](/2020/1.5%20华为云的go语言云原生实战经验.pdf)
+* [1.6 Functional options and config for APIs.pdf](./2020/1.6%20Functional%20options%20and%20config%20for%20APIs.pdf)
+* [2.1.1 百度万亿流量转发平台背后的故事.pdf](./2020/2.1.1%20百度万亿流量转发平台背后的故事.pdf)
+* [2.1.2 Go如何帮滴滴支撑海量运维场景.pdf](./2020/2.1.2%20Go如何帮滴滴支撑海量运维场景.pdf)
+* [2.1.3 如何用go module构建模块化跨链平台.pdf](./2020/2.1.3%20如何用go%20module构建模块化跨链平台.pdf)
+* [2.1.4 PingCAP-Go runtime related problems in TiDB production environment.pdf](./2020/2.1.4%20PingCAP-Go%20runtime%20related%20problems%20in%20TiDB%20production%20environment.pdf)
+* [2.1.5 Go语言编译器简介.pdf](./2020/2.1.5%20Go语言编译器简介.pdf)
+* [2.1.6 基于TarsGo的云原生微服务架构演进.pdf](./2020/2.1.6%20基于TarsGo的云原生微服务架构演进.pdf)
+* [2.1.7 使用Golang实现万人同服的游戏服务器.pdf](./2020/2.1.7%20使用Golang实现万人同服的游戏服务器.pdf)
+* [2.2.1 Go in the Cloud - Why People Choose Go for Cloud Computing.pdf](./2020/2.2.1%20Go%20in%20the%20Cloud%20-%20Why%20People%20Choose%20Go%20for%20Cloud%20Computing.pdf)
+* [2.2.2 云原生go-zero微服务框架设计思考.pdf](./2020/2.2.2%20云原生go-zero微服务框架设计思考.pdf)
+* [2.2.3 Go+演进之路.pdf](./2020/2.2.3%20Go%2B演进之路.pdf)
+* [2.2.4 直播长链接架构演进.pdf](./2020/2.2.4%20直播长链接架构演进.pdf)
+* [2.2.5 go-Chassis 在 shopee 供应链的实践.pdf](./2020/2.2.5%20go-Chassis%20在%20shopee%20供应链的实践.pdf)
+* [2.2.6 Golang大规模云原生应用管理实践.pdf](./2020/2.2.6%20Golang大规模云原生应用管理实践.pdf)
+* [2.2.7 GORM 剖析与最佳实践.pdf](./2020/2.2.7%20GORM%20剖析与最佳实践.pdf)
+
+## 2019
+
+* [1.1 大型微服务框架设计实践 - 杜欢](./2019/1.1%20大型微服务框架设计实践%20-%20杜欢.pdf)
+* [1.2 用Go打造Grab的路径规划和ETA引擎](./2019/1.2%20用Go打造Grab的路径规划和ETA引擎.pdf)
+* [1.3 Go practices in TiDB - 姚维.pdf](./2019/1.3%20Go%20practices%20in%20TiDB%20-%20姚维.pdf)
+* [1.4 Testing; how, what, why - Dave .pdf](./2019/1.4%20Testing%3B%20how%2C%20what%2C%20why%20-%20Dave%20.pdf)
+* [1.5 Go 业务开发中 Error & Context - 毛剑.pdf](./2019/1.5%20Go%20业务开发中%20Error%20%26%20Context%20-%20毛剑.pdf)
+* [1.6 Go并发编程实践 - 晁岳攀.pdf](./2019/1.6%20Go并发编程实践%20-%20晁岳攀.pdf)
+* [1.7 百度APP Go 语言实践 - 陈肖楠.pdf](./2019/1.7%20百度APP%20Go%20语言实践%20-%20陈肖楠.pdf)
+* [1.8 Golang to build a real-time interactive SaaS Cloud - 董海冰.pdf](./2019/1.8%20Golang%20to%20build%20a%20real-time%20interactive%20SaaS%20Cloud%20-%20董海冰.pdf)
+* [2.1 基于MINIO的对象存储方案在探探的实践 - 于乐.pdf](./2019/2.1%20基于MINIO的对象存储方案在探探的实践%20-%20于乐.pdf)
+* [2.2 从零开始用 Go 实现 Lexer & Parser - 何源.pdf](./2019/2.2%20从零开始用%20Go%20实现%20Lexer%20%26%20Parser%20-%20何源.pdf)
+* [2.3 高性能高可用的微服务框架TarsGo的腾讯实践 - 陈明杰.pdf](./2019/2.3%20高性能高可用的微服务框架TarsGo的腾讯实践%20-%20陈明杰.pdf)
+* [2.4 闪电网络—BTC小额支付解决方案 - 方圆.pdf](./2019/2.4%20闪电网络—BTC小额支付解决方案%20-%20方圆.pdf)
+* [2.5 Go Modules in day to day life - Florin Patan.pdf](./2019/2.5%20Go%20Modules%20in%20day%20to%20day%20life%20-%20Florin%20Patan.pdf)
+* [2.6 用Go构建高性能数据库中间件- 徐成选.pdf](./2019/2.6%20用Go构建高性能数据库中间件-%20徐成选.pdf)
+* [2.7 花椒直播基于golang的中台技术实践 - 周洋.pdf](./2019/2.7%20花椒直播基于golang的中台技术实践%20-%20周洋.pdf)
+* [2.8 知乎社区核心业务 Golang 化实践 - 杜旭.pdf](./2019/2.8%20知乎社区核心业务%20Golang%20化实践%20-%20杜旭.pdf)

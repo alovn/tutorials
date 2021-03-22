@@ -15,10 +15,12 @@ channel.queue_declare(queue='hello', durable=True)
 
 
 def callback(ch, method, properties, body):
+    print(method)
     print(" [x] Received %r" % body)
-    print method.delivery_tag
+    print(method.delivery_tag)
+    print(method.consumer_tag)
     time.sleep(2)
-    print 'Done'
+    print('Done')
     # 对message进行确认
     #ch.basic_ack(delivery_tag=method.delivery_tag)
 

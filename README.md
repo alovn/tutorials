@@ -2,6 +2,7 @@
 
 ## Golang
 
-1. [grpc-demo](/golang/grpc_demo)
-2. [gopherchina-2019](/golang/gopherchina/2019)
-3. [ratelimit](/golang/ratelimit/)
+1. [Go语言设计模式](/golang/design-pattern/)
+2. [grpc代码示例](/golang/grpc/)
+3. [gopherchina](/golang/gopherchina/)
+4. [ratelimit](/golang/ratelimit/)
